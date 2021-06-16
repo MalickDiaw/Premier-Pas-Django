@@ -1,0 +1,17 @@
+<h1>Blog ({{posts|length}} posts)</h1>
+
+{% for post in posts %}
+    <article>
+        <h2><a href="/blog/posts/{{ post.id }}">#{{ post.id }} - {{ post.title }}</a></h2>
+        <p>{{ post.body|truncatechars:10 }}</p>
+
+        <a href="/blog/posts/{{ post.id }}"> <p>lire la suite</p> </a>
+    </article>
+
+    {% if not forloop.last %}
+        <hr>
+    {% endif %}
+
+{% empty %}
+    <p>Liste vide !!!</p>
+{% endfor %}

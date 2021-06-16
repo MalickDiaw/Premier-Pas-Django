@@ -1,0 +1,8 @@
+<h1>Show #{{ post.id }}</h1>
+
+<article>
+    <h2>#{{ post.id }} - {{ post.title }}</a></h2>
+    <p>{{ post.body }}</p>
+</article>
+
+<a href="{% url 'index' %}">Retour à l'accueil</a>
