@@ -1,5 +1,10 @@
-<h1>Welcome Home</h1>
+{% extends 'layouts/base.html' %}
 
-<a href="{% url 'blog:index' %}">Visitez notre blog</a>
+{% block content %}
+    <h1>Welcome Home</h1>
 
-{% comment %} <a href="{% url 'index' %}">Visitez notre blog</a> {% endcomment %}
+    <a href="{% url 'blog:index' %}">Visitez notre blog</a>
+
+    {% comment %} <a href="{% url 'index' %}">Visitez notre blog</a> {% endcomment %}
+
+{% endblock content %}

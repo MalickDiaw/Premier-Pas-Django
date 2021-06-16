@@ -1,18 +1,26 @@
-<h1>Blog ({{posts|length}} posts)</h1>
+{% extends 'layouts/base.html' %}
 
-{% for post in posts %}
-    <article>
-        {% comment %} <h2><a href="/blog/posts/{{ post.id }}">#{{ post.id }} - {{ post.title }}</a></h2> {% endcomment %}
-        <h2><a href="{% url 'blog:show' post.id %}">#{{ post.id }} - {{ post.title }}</a></h2>
-        <p>{{ post.body|truncatechars:10 }}</p>
+{% block title %}Blog{% endblock title %}
 
-        <a href="{% url 'blog:show' post.id %}"> <p>lire la suite</p> </a>
-    </article>
+{% block content %}
 
-    {% if not forloop.last %}
-        <hr>
-    {% endif %}
+    <h1>Blog ({{posts|length}} posts)</h1>
 
-{% empty %}
-    <p>Liste vide !!!</p>
-{% endfor %}
+    {% for post in posts %}
+        <article>
+            {% comment %} <h2><a href="/blog/posts/{{ post.id }}">#{{ post.id }} - {{ post.title }}</a></h2> {% endcomment %}
+            <h2><a href="{% url 'blog:show' post.id %}">#{{ post.id }} - {{ post.title }}</a></h2>
+            <p>{{ post.body|truncatechars:10 }}</p>
+
+            <a href="{% url 'blog:show' post.id %}"> <p>lire la suite</p> </a>
+        </article>
+
+        {% if not forloop.last %}
+            <hr>
+        {% endif %}
+
+    {% empty %}
+        <p>Liste vide !!!</p>
+    {% endfor %}
+
+{% endblock content %}

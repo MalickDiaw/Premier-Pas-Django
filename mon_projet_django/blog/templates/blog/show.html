@@ -1,8 +1,17 @@
-<h1>Show #{{ post.id }}</h1>
+{% extends 'layouts/base.html' %}
 
-<article>
-    <h2>#{{ post.id }} - {{ post.title }}</a></h2>
-    <p>{{ post.body }}</p>
-</article>
+{% block title %}Show | {{ post.title }}{% endblock title %}
 
-<a href="{% url 'index' %}">Retour à l'accueil</a>
+{% block content %}
+
+    <h1>Show #{{ post.id }}</h1>
+
+    <article>
+        <h2>#{{ post.id }} - {{ post.title }}</a></h2>
+        <p>{{ post.body }}</p>
+    </article>
+
+    <a href="{% url 'index' %}">Retour à l'accueil</a>
+
+
+{% endblock %}
