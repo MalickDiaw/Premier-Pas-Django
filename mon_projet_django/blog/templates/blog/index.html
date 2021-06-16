@@ -2,10 +2,11 @@
 
 {% for post in posts %}
     <article>
-        <h2><a href="/blog/posts/{{ post.id }}">#{{ post.id }} - {{ post.title }}</a></h2>
+        {% comment %} <h2><a href="/blog/posts/{{ post.id }}">#{{ post.id }} - {{ post.title }}</a></h2> {% endcomment %}
+        <h2><a href="{% url 'blog:show' post.id %}">#{{ post.id }} - {{ post.title }}</a></h2>
         <p>{{ post.body|truncatechars:10 }}</p>
 
-        <a href="/blog/posts/{{ post.id }}"> <p>lire la suite</p> </a>
+        <a href="{% url 'blog:show' post.id %}"> <p>lire la suite</p> </a>
     </article>
 
     {% if not forloop.last %}

@@ -1,3 +1,6 @@
+from django.http import Http404
+
+
 class Post():
 
     listePost = [
@@ -12,4 +15,7 @@ class Post():
 
     @classmethod
     def findPost(cls, id):
-        return cls.listePost[id - 1]
+        try:
+            return cls.listePost[id - 1]
+        except:
+            raise Http404("Post #{} n'existe pas".format(id))
